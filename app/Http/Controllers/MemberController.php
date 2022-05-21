@@ -5,6 +5,8 @@ use Auth;
 use Illuminate\Http\Request;
 use App\UserRole;
 use App\Technician;
+use App\Service;
+
 
 class MemberController extends Controller
 {
@@ -26,13 +28,15 @@ class MemberController extends Controller
     public function index()
     {
       $technicians = Technician::all();
-      return view('member.index',compact('technicians'));
+      $services = Service::all();
+      return view('member.index',compact('technicians','services'));
     }
 
 
     public function add_member()
     {
-        return view('member.create');
+       $services = Service::all();
+        return view('member.create',compact('services'));
     }
     public function save_technician(Request $request)
     {
@@ -68,7 +72,8 @@ class MemberController extends Controller
     public function edit_technician($id)
     {
       $technician = Technician::find($id);
-      return view('member.edit',compact('technician'));
+      $services = Service::all();
+      return view('member.edit',compact('technician','services'));
     }
     public function update_technician(Request $request)
     {
@@ -117,16 +122,7 @@ class MemberController extends Controller
         return view('customer.create');
     }
 
-    public function job()
-    {
-        return view('job.index');
-    }
 
-
-    public function create_job()
-    {
-        return view('job.create');
-    }
     public function reports()
     {
         return view('reports.index');

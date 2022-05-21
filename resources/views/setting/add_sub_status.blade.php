@@ -6,6 +6,7 @@
               <div class="col-12 col-md-6 col-lg-12" style="user-select: auto;">
                 <div class="card" style="user-select: auto;">
                   <div class="card-header" style="user-select: auto;">
+                    <a href="javascript:history.back()" style="float:right;" class="btn btn-primary pull-right">Back</a>
                     <h4 style="user-select: auto;">Add Sub-Status</h4>
                   </div>
                   <form action="save_sub_status" method="POST" style="user-select: auto;">
@@ -17,12 +18,10 @@
                     <div class="form-group" style="user-select: auto;">
                       <label style="user-select: auto;"> Parent Status</label>
                       <select class="form-control" name="parent_status">
-                        <option>Submitted </option>
-                        <option>In Progress</option>
-                        <option>Pending</option>
-                        <option>Done Pending Approval</option>
-                        <option>Appointments</option>
 
+                        @foreach ($parentstatus as $status)
+                        <option value="{{$status->parent_status}}"> {{$status->parent_status}}</option>
+                        @endforeach
                       </select>
                     </div>
                   </div>

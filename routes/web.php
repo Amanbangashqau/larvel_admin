@@ -48,10 +48,12 @@ Route::get('edit_service/{id}', 'ServiceController@edit_service');
 Route::post('update_service', 'ServiceController@update_service');
 Route::get('delete_service/{id}', 'ServiceController@destroy');
 
-Route::get('jobs', 'MemberController@job');
-Route::get('create_job', 'MemberController@create_job');
-
-Route::get('jobs', 'MemberController@job');
+Route::get('jobs', 'JobController@index');
+Route::get('create_job', 'JobController@create_job');
+Route::post('save_job', 'JobController@save_job');
+Route::get('edit_job/{id}', 'JobController@edit_job');
+Route::post('update_job', 'JobController@update_job');
+Route::get('delete_job/{id}', 'JobController@destroy');
 
 Route::get('category', 'CategoryController@category');
 Route::post('save_category', 'CategoryController@save_category');

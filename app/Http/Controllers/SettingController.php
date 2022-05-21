@@ -7,6 +7,7 @@ use App\UserRole;
 use App\tbl_company;
 use App\Status;
 use App\JobSource;
+use App\ParentStatus;
 
 
 class SettingController extends Controller
@@ -86,8 +87,8 @@ class SettingController extends Controller
     }
 
     public function add_sub_status()
-    {
-        return view('setting.add_sub_status');
+    {   $parentstatus = ParentStatus::all();
+        return view('setting.add_sub_status',compact('parentstatus'));
     }
 
     public function save_sub_status(Request $request)
@@ -104,7 +105,8 @@ class SettingController extends Controller
     public function edit_sub_status($id)
     {
       $status = Status::find($id);
-      return view('setting.edit_sub_status',compact('status'));
+      $parentstatus = ParentStatus::all();
+      return view('setting.edit_sub_status',compact('status','parentstatus'));
     }
     public function update_sub_status(Request $request)
     {

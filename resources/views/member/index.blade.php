@@ -63,7 +63,13 @@
                                       <p class="text-xs font-weight-bold mb-0">{{$technician->email}}</p>
                                   </td>
                                   <td class="text-center">
-                                      <p class="text-xs font-weight-bold mb-0">{{$technician->service_id}}</p>
+                                      <p class="text-xs font-weight-bold mb-0">
+                                          @foreach ($services as $service)
+                                          @if($service->id == $technician->service_id)
+                                            {{$service->service_name}} 
+                                          @endif
+
+                                          @endforeach
                                   </td>
                                   <td class="text-center">
                                       <span class="text-secondary text-xs font-weight-bold">{{$technician->experience}}</span>

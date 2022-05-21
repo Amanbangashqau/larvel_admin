@@ -6,6 +6,7 @@
               <div class="col-12 col-md-6 col-lg-12" style="user-select: auto;">
                 <div class="card" style="user-select: auto;">
                   <div class="card-header" style="user-select: auto;">
+                    <a href="javascript:history.back()" style="float:right;" class="btn btn-primary pull-right">Back</a>
                     <h4 style="user-select: auto;">Edit Technician</h4>
                   </div>
                   <form action="{{ url('update_technician') }}" method="POST" enctype="multipart/form-data" style="user-select: auto;">
@@ -36,14 +37,12 @@
                     </div>
                     <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                     <div class="form-group" style="user-select: auto;">
-                      <label style="user-select: auto;">Service Name</label>
+                      <label style="user-select: auto;">Service Name </label>
                       <select name="service_id" class="form-control" style="user-select: auto;">
-                         <option value="23" style="user-select: auto;">HVAC Tech</option>
-                         <option value="18" style="user-select: auto;">Plumber</option>
-                         <option value="22" style="user-select: auto;">Pest Control</option>
-                         <option value="20" style="user-select: auto;">Electrician</option>
-                         <option value="17" style="user-select: auto;">Handyman</option>
-                         <option value="24" style="user-select: auto;">Appliance Repair</option>
+                        <option>Select Service</option>
+                        @foreach ($services as $service)
+                         <option value="{{$service->id}}"  <?php if($service->id == $technician->service_id) {echo "selected";} ?> style="user-select: auto;">{{$service->service_name}} </option>
+                        @endforeach
                       </select>
 
                     </div>

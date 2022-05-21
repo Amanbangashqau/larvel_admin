@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -21,11 +22,11 @@ class LoginController extends Controller
     {
        return view('custom_login.login2');
     }
-    // public function logout(Request $request)
-    // {
-    //   Auth::logout();
-    //   return redirect('/login');
-    // }
+    public function logout(Request $request)
+    {
+      Auth::logout();
+      return redirect('/login');
+    }
     use AuthenticatesUsers;
 
     /**

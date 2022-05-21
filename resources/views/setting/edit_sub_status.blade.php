@@ -6,8 +6,8 @@
               <div class="col-12 col-md-6 col-lg-12" style="user-select: auto;">
                 <div class="card" style="user-select: auto;">
                   <div class="card-header" style="user-select: auto;">
-                    <h4 style="user-select: auto;">Edit Sub-Status</h4>
                     <a href="javascript:history.back()" style="float:right;" class="btn btn-primary pull-right">Back</a>
+                    <h4 style="user-select: auto;">Edit Sub-Status</h4>
                   </div>
                   <form action="{{ url('update_sub_status') }}" method="POST" style="user-select: auto;">
                   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -19,12 +19,9 @@
                     <div class="form-group" style="user-select: auto;">
                       <label style="user-select: auto;"> Parent Status</label>
                       <select class="form-control" name="parent_status">
-                        <option <?php if( $status->parent_status == 'Submitted'){ echo "selected";} ?> value="Submitted">Submitted </option>
-                        <option <?php if( $status->parent_status == 'In Progress'){ echo "selected";} ?> value="In Progress">In Progress</option>
-                        <option <?php if( $status->parent_status == 'Pending'){ echo "selected";} ?>value="Pending">Pending</option>
-                        <option <?php if( $status->parent_status == 'Done Pending Approval'){ echo "selected";} ?> value="Done Pending Approval">Done Pending Approval</option>
-                        <option <?php if( $status->parent_status == 'Appointments'){ echo "selected";} ?> value="Appointments">Appointments</option>
-
+                        @foreach ($parentstatus as $st)
+                        <option value="{{$st->parent_status}}" <?php if($st->parent_status == $status->parent_status) {echo "selected";} ?> > {{$st->parent_status}}</option>
+                        @endforeach
                       </select>
                     </div>
                   </div>
