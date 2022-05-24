@@ -8,20 +8,21 @@
                   <div class="card-header" style="user-select: auto;">
                     <h4 style="user-select: auto;">Add Customer</h4>
                   </div>
-                  <form action="save_customer" method="POST" enctype="multipart/form-data" style="user-select: auto;">
+                  <form action="{{ url('update_customer') }}" method="POST" enctype="multipart/form-data" style="user-select: auto;">
                   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                  <input type="hidden" name="id" value="{{$customer->id}}">
                   <div class="card-body" style="user-select: auto;">
                     <div class="row" style="user-select: auto;">
                       <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                     <div class="form-group" style="user-select: auto;">
                       <label style="user-select: auto;">Name</label>
-                      <input name="name" type="text" class="form-control" style="user-select: auto;">
+                      <input name="name" type="text" value="{{$customer->name}}" class="form-control" style="user-select: auto;">
                     </div>
                   </div>
                     <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                         <div class="form-group" style="user-select: auto;">
                           <label style="user-select: auto;">Email</label>
-                          <input name="email" type="email" class="form-control" style="user-select: auto;">
+                          <input name="email" type="email"  value="{{$customer->email}}" class="form-control" style="user-select: auto;">
                         </div>
                     </div>
 
@@ -30,13 +31,13 @@
                     <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                         <div class="form-group" style="user-select: auto;">
                           <label style="user-select: auto;">Password</label>
-                          <input name="password" type="password" class="form-control" style="user-select: auto;">
+                          <input name="password" value="{{$customer->password}}" type="password" class="form-control" style="user-select: auto;">
                         </div>
                     </div>
                     <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                   <div class="form-group" style="user-select: auto;">
                     <label style="user-select: auto;">Address</label>
-                    <input name="address" type="text" class="form-control" style="user-select: auto;">
+                    <input name="address"  value="{{$customer->address}}" type="text" class="form-control" style="user-select: auto;">
                   </div>
                 </div>
 
@@ -48,13 +49,13 @@
                     <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                     <div class="form-group" style="user-select: auto;">
                       <label style="user-select: auto;">Zip Code</label>
-                      <input type="text" name="zip_code" class="form-control" style="user-select: auto;">
+                      <input type="text" value="{{$customer->zip_code}}" name="zip_code" class="form-control" style="user-select: auto;">
                     </div>
                   </div>
                   <div class="col-12 col-md-6 col-lg-6" style="user-select: auto;">
                 <div class="form-group" style="user-select: auto;">
                   <label style="user-select: auto;">Mobile No</label>
-                  <input type="text" name="mobile_number" class="form-control" style="user-select: auto;">
+                  <input type="text" value="{{$customer->mobile_number}}" name="mobile_number" class="form-control" style="user-select: auto;">
                 </div>
               </div>
 

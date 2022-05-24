@@ -38,8 +38,13 @@ Route::get('edit_technician/{id}', 'MemberController@edit_technician');
 Route::post('update_technician', 'MemberController@update_technician');
 Route::get('delete_technician/{id}', 'MemberController@destroy');
 
-Route::get('customer', 'MemberController@customer_index');
-Route::get('add_customer', 'MemberController@add_customer');
+Route::get('customer', 'CustomerController@index');
+Route::get('add_customer', 'CustomerController@add_customer');
+Route::post('save_customer', 'CustomerController@save_customer');
+Route::get('edit_customer/{id}', 'CustomerController@edit_customer');
+Route::post('update_customer', 'CustomerController@update_customer');
+Route::get('delete_customer/{id}', 'CustomerController@destroy');
+
 
 Route::get('service', 'ServiceController@index');
 Route::get('create_service', 'ServiceController@create_service');

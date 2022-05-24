@@ -9,7 +9,7 @@
                 <div class="card-header pb-0">
                     <div class="d-flex flex-row justify-content-between">
                         <div>
-                            <h5 class="mb-0">All Customer</h5>
+                            <h5 class="mb-0"> Customers</h5>
                         </div>
                         <a href="{{ url('add_customer') }}" class="btn bg-gradient-primary btn-sm mb-0" type="button">+&nbsp; New Customer</a>
                     </div>
@@ -30,18 +30,16 @@
                                         Email
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Service Name
+                                        Address
                                     </th>
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Experience
+                                        Zip Code
                                     </th>
 
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Latitude
+                                        Mobile No
                                     </th>
-                                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Longitude
-                                    </th>
+
                                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Action
                                     </th>
@@ -49,105 +47,45 @@
 
                             </thead>
                             <tbody>
+                              <?php $i=1;?>
+                              @foreach ($customers as $customer)
                               <tr>
                                   <td class="ps-4">
-                                      <p class="text-xs font-weight-bold mb-0">5</p>
+                                      <p class="text-xs font-weight-bold mb-0">{{$i}}</p>
                                   </td>
 
                                   <td class="text-center">
-                                      <p class="text-xs font-weight-bold mb-0">Marie</p>
+                                      <p class="text-xs font-weight-bold mb-0">{{$customer->name}}</p>
                                   </td>
                                   <td class="text-center">
-                                      <p class="text-xs font-weight-bold mb-0">marie@softui.com</p>
+                                      <p class="text-xs font-weight-bold mb-0">{{$customer->email}}</p>
                                   </td>
                                   <td class="text-center">
-                                      <p class="text-xs font-weight-bold mb-0">Creator</p>
+                                    {{$customer->address}}
                                   </td>
                                   <td class="text-center">
-                                      <span class="text-secondary text-xs font-weight-bold"></span>
+                                      <span class="text-secondary text-xs font-weight-bold">{{$customer->zip_code}}</span>
                                   </td>
                                   <td class="text-center">
-                                      <span class="text-secondary text-xs font-weight-bold"></span>
+                                      <span class="text-secondary text-xs font-weight-bold">{{$customer->mobile_number}}</span>
                                   </td>
+
                                   <td class="text-center">
-                                      <span class="text-secondary text-xs font-weight-bold"></span>
-                                  </td>
-                                  <td class="text-center">
-                                      <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                          data-bs-original-title="Edit Customer">
-                                          <i class="fas fa-user-edit text-secondary"></i>
+                                      <a href="edit_customer/{{$customer->id}}" class="mx-3" data-bs-toggle="tooltip"
+                                          data-bs-original-title="Edit ">
+                                          <i class="fas fa-edit text-secondary"></i>
                                       </a>
+                                      <a href="delete_customer/{{$customer->id}}" class="mx-3" data-bs-toggle="tooltip"
+                                          data-bs-original-title="Delete ">
                                       <span>
-                                          <i class="cursor-pointer fas fa-trash text-secondary"></i>
+                                          <i   class="cursor-pointer fas fa-trash text-secondary"></i>
                                       </span>
+                                      </a>
                                   </td>
                               </tr>
-                                <tr>
-                                    <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">5</p>
-                                    </td>
 
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Marie</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">marie@softui.com</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Creator</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"></span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"></span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"></span>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
-                                        </a>
-                                        <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                        </span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="ps-4">
-                                        <p class="text-xs font-weight-bold mb-0">5</p>
-                                    </td>
-
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Marie</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">marie@softui.com</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <p class="text-xs font-weight-bold mb-0">Creator</p>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"></span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"></span>
-                                    </td>
-                                    <td class="text-center">
-                                        <span class="text-secondary text-xs font-weight-bold"></span>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" class="mx-3" data-bs-toggle="tooltip"
-                                            data-bs-original-title="Edit user">
-                                            <i class="fas fa-user-edit text-secondary"></i>
-                                        </a>
-                                        <span>
-                                            <i class="cursor-pointer fas fa-trash text-secondary"></i>
-                                        </span>
-                                    </td>
-                                </tr>
+                                <?php $i++; ?>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

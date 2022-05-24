@@ -111,17 +111,7 @@ class MemberController extends Controller
        $technician->delete();
        return  redirect('/members');
     }
-    public function customer_index()
-    {
-        return view('customer.index');
-    }
-
-
-    public function add_customer()
-    {
-        return view('customer.create');
-    }
-
+  
 
     public function reports()
     {
