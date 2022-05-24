@@ -6,7 +6,8 @@
               <div class="col-12 col-md-6 col-lg-12" style="user-select: auto;">
                 <div class="card" style="user-select: auto;">
                   <div class="card-header" style="user-select: auto;">
-                    <h4 style="user-select: auto;">Add Customer</h4>
+                    <a href="javascript:history.back()" style="float:right;" class="btn btn-primary pull-right">Back</a>
+                    <h4 style="user-select: auto;">Edit Customer</h4>
                   </div>
                   <form action="{{ url('update_customer') }}" method="POST" enctype="multipart/form-data" style="user-select: auto;">
                   <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
